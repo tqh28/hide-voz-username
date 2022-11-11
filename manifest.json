@@ -1,0 +1,32 @@
+{
+  "name": "Ẩn tên người dùng VOZ",
+  "version": "1.0",
+  "manifest_version": 3,
+  "author": "tqh28",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Ẩn tên người dùng VOZ"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://voz.vn/*"
+      ],
+      "js": [
+        "voz-inject.js"
+      ]
+    }
+  ]
+}
